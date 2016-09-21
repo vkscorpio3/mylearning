@@ -1,0 +1,40 @@
+mysql-5.6.24-osx10.9-x86_64.dmg
+mysql-workbench-community-6.3.3-osx-x86_64.dmg
+
+没啥可说的，双击就可以安装，workbench安装后就可以用了
+mysql配置：
+http://dev.mysql.com/doc/refman/5.6/en/osx-installation.html
+http://dev.mysql.com/doc/refman/5.6/en/osx-installation-pkg.html
+http://dev.mysql.com/doc/refman/5.6/en/osx-installation-launchd.html
+http://dev.mysql.com/doc/refman/5.6/en/osx-installation-prefpane.html
+
+总结一下：
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>com.mysql.mysqld</string>
+    <key>ProgramArguments</key>
+    <array>
+    <string>/usr/local/mysql/bin/mysqld_safe</string>
+    <string>--user=mysql</string>
+    </array>
+  </dict>
+</plist>
+
+Save the XML as a file named /Library/LaunchDaemons/com.mysql.mysql.plist
+
+Adjust the file permissions using the Apple recommended owner "root", owning group "wheel", and file permissions "644"
+shell> sudo chown root:wheel /Library/LaunchDaemons/com.mysql.mysql.plist
+shell> sudo chmod 644 /Library/LaunchDaemons/com.mysql.mysql.plist
+
+Enable this new MySQL service
+
+shell> sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysql.plist
+
+The MySQL daemon is now running, and automatically starts when your system is rebooted.
