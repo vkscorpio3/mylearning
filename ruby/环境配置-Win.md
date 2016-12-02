@@ -19,13 +19,15 @@ ruby dk.rb install
 gem sources --remove https://rubygems.org/  
 
 # 添加淘宝镜像链接
-gem source -a https://gems.ruby-china.org/
+gem source -a http://gems.ruby-china.org/
 
 # 查询是否替换成功
 gem sources -l
 
 # 更新RubyGems软件
 gem update --system
+
+gem install rails
 
 # 安装jekyll
 gem install jekyll
