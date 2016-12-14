@@ -29,4 +29,24 @@ scp ./nginx-1.11.3.tar.gz cuflash@139.196.1.1:/home/cuflash/setup
 
 ### 目录
 
-- ~/setup
+- ~/setup 下载和拷贝的安装包
+- /usr/local
+- /opt/
+
+### JDK
+
+/usr/local/jdk1.8
+
+```
+sudo vi /etc/profile
+
+# 在尾部添加如下配置
+
+# add by wen
+export JAVA_HOME=/usr/local/jdk1.8
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
+
+# 保存后，执行
+source /etc/profile
+```
