@@ -101,7 +101,44 @@ cd /usr/local/apache-tomcat-8/bin
 Unix daemon
 
 ```
+# 创建tomcat用户，但不创建用户目录
 useradd -M tomcat
 chown -R tomcat: /usr/local/apache-tomcat-8
 
+
+sudo vi /etc/profile
+
+# add by wen
+export CATALINA_HOME=/usr/local/apache-tomcat-8
+export CATALINA_BASE=$CATALINA_HOME
+export PATH=$PATH:$CATALINA_HOME/bin
+
+# 保存后，执行
+source /etc/profile
+
+# 测试
+echo $CATALINA_HOME
+
+
+cd $CATALINA_HOME/bin
+sudo tar xvfz commons-daemon-native.tar.gz
+cd commons-daemon-1.0.x-native-src/unix
+sudo ./configure --with-java=/usr/local/jdk1.8
+sudo make
+sudo cp jsvc ../..
+
+cp daemon.sh /etc/init.d/tomcat
+sudo /etc/init.d/tomcat start
+```
+
+启动失败了，没有读取到环境变量，直接在 /etc/init.d/tomcat 中头部添加：
+
+```
+export JAVA_HOME=/usr/local/jdk1.8
+
+export TOMCAT_HOME=/usr/local/apache-tomcat-8
+
+export CATALINA_HOME=$TOMCAT_HOME
+export CATALINA_BASE=$CATALINA_HOME
+export CATALINA_TMPDIR=$CATALINA_HOME/temp
 ```
