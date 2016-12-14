@@ -79,3 +79,29 @@ source /etc/profile
 # 测试
 mvn -v
 ```
+
+### Tomcat
+
+/usr/local/
+
+```
+tar xzvf apache-tomcat-8.0.36.tar.gz
+mv apache-tomcat-8.0.36 apache-tomcat-8
+sudo mv ./apache-tomcat-8 /usr/local/apache-tomcat-8
+
+cd /usr/local/apache-tomcat-8/bin
+./startup.sh
+
+# 测试，访问：http://139.196.1.1:8080
+
+# 关闭
+./shutdown.sh
+```
+
+Unix daemon
+
+```
+useradd -M tomcat
+chown -R tomcat: /usr/local/apache-tomcat-8
+
+```
