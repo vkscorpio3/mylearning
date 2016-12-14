@@ -38,6 +38,9 @@ scp ./nginx-1.11.3.tar.gz cuflash@139.196.1.1:/home/cuflash/setup
 /usr/local/jdk1.8
 
 ```
+tar xzvf jdk-8u112-linux-x64.tar.gz
+sudo mv ./jdk1.8.0_112 /usr/local/jdk1.8
+
 sudo vi /etc/profile
 
 # 在尾部添加如下配置
@@ -49,4 +52,30 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 # 保存后，执行
 source /etc/profile
+
+# 测试
+java -version
+```
+
+### Maven
+
+/usr/local/apache-maven3.3.9
+
+```
+tar xzvf apache-maven-3.3.9-bin.tar.gz
+sudo mv ./apache-maven-3.3.9 /usr/local/apache-maven-3.3.9
+
+sudo vi /etc/profile
+
+# 在尾部添加如下配置
+
+# add by wen
+export M2_HOME=/usr/local/apache-maven-3.3.9
+export PATH=$PATH:$M2_HOME/bin
+
+# 保存后，执行
+source /etc/profile
+
+# 测试
+mvn -v
 ```
