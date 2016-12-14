@@ -216,6 +216,12 @@ make install
 # 创建nginx用户，但不创建用户目录
 useradd -M nginx
 chown -R nginx: /usr/local/nginx-1.11.3
+
+vi /usr/local/nginx-1.11.3/conf/nginx.conf
+# 添加或修改下面内容
+user nginx;
+worker_processes 2;
+
 ```
 
 nginx 操作
@@ -252,3 +258,7 @@ sudo kill -HUP `cat /usr/local/nginx-1.11.3/nginx.pid`
 ```
 
 跟随系统启动
+
+```
+//TODO
+```
