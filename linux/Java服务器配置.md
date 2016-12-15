@@ -270,6 +270,18 @@ vi nginx
 
 # 内容
 
+
+cp nginx /etc/init.d/nginx
+ln -s /etc/init.d/nginx S99nginx
+ln -s /etc/init.d/nginx K99nginx
+
+service nginx start  
+service nginx stop  
+
+```
+
+nginx 管理脚本
+
 ```
 #!bin/sh
 # chkconfig
@@ -354,14 +366,4 @@ case "$1" in
         echo $"Usage: $0 {start|stop|restart|reload|status|check|relog}"
         exit 1
 esac
-```
-
-
-cp nginx /etc/init.d/nginx
-ln -s /etc/init.d/nginx S99nginx
-ln -s /etc/init.d/nginx K99nginx
-
-service nginx start  
-service nginx stop  
-
 ```
