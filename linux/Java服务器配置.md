@@ -331,7 +331,6 @@ check() {
     $NGINX_SBIN -c $NGINX_CONF -t
 }
 
-
 reload() {
     kill -HUP `cat $NGINX_PID` && echo "reload success!"
 }

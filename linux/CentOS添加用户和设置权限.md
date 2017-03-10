@@ -38,4 +38,7 @@ passwd: all authentication tokens updated successfully.
 ## Allow root to run any commands anywhere
 root    ALL=(ALL)     ALL
 tommy   ALL=(ALL)     ALL
+
+# 使用 sudo 免输密码
+tommy   ALL=(ALL) NOPASSWD:     ALL
 ```

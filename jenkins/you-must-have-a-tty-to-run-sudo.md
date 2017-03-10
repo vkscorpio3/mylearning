@@ -1,0 +1,3 @@
+﻿# sudo: sorry, you must have a tty to run sudo
+
+> ...
