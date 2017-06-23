@@ -52,6 +52,6 @@ select * from 表名   where date_format(submittime,'%Y-%m')=date_format(now(),'
 17、查询距离当前现在6个月的数据
 select name,submittime from enterprise where submittime between date_sub(now(),interval 6 month) and now();
 
-mysql直接日期加几天时间添加7天的例子:
+18、mysql直接日期加几天时间添加7天的例子:
 SELECT DATE_ADD('2011-09-26', INTERVAL 7 DAY);
 ```

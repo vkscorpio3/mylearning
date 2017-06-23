@@ -75,7 +75,7 @@ Catelog 一个比较大的容易，装所有的商品
 
 每个 CV 下有多个 Category
 
-Classification 怎么建模？动态修改剑魔
+Classification 怎么建模？动态修改建模
 
 非结构化信息，不便于搜索
 
